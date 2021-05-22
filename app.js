@@ -13,15 +13,8 @@ app.use(bodyParser.json());
 
 app.use("/api", bankRouter);
 app.use(cors());
-app.get("/", cors(), (req, res) => {
-    mySqlDb.query("SELECT * from bank_branches", (err, rows, fields) => {
-        if(!err) {
-            console.log(rows.length)
-            res.json(rows);
-        } else {
-            console.log(err);
-        }
-    })
+app.get("/", (req, res) => {
+   res.send("Hello World!");
 })
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
