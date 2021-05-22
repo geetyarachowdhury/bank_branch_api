@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 
 app.use("/api", bankRouter);
 app.use(cors());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
